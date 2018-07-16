@@ -9,6 +9,8 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import javax.swing.JOptionPane;
+import Conexion.Conexion;
 
 /**
  *
@@ -104,8 +106,10 @@ private Conexion conexion = Conexion.getInstance();
     private void ingresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ingresarActionPerformed
         // TODO add your handling code here:
         if (usuarioCorrecto()) {
+            JOptionPane.showMessageDialog(null, "Ingresando");
             System.out.println("Ingresando");
         } else {
+            JOptionPane.showMessageDialog(null, "Error: usuario inexistente");
             System.out.println("Error: usuario inexistente");
         }
     }//GEN-LAST:event_ingresarActionPerformed
