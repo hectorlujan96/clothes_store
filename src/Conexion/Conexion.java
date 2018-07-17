@@ -5,7 +5,6 @@
  */
 package Conexion;
 
-import proyectofinal.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
