@@ -4,7 +4,8 @@
  * and open the template in the editor.
  */
 package Vistas;
-import componentes.BotonAceptar;
+
+
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 /**
