@@ -23,6 +23,7 @@ private Conexion conexion = Conexion.getInstance();
      */
     public Login() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -43,6 +44,7 @@ private Conexion conexion = Conexion.getInstance();
         jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setLocation(new java.awt.Point(350, 250));
         setResizable(false);
 
         jLabel1.setFont(new java.awt.Font("Consolas", 1, 18)); // NOI18N
@@ -113,7 +115,8 @@ private Conexion conexion = Conexion.getInstance();
         // TODO add your handling code here:
         if (usuarioCorrecto()) {
             JOptionPane.showMessageDialog(null, "Ingresando");
-            System.out.println("Ingresando");
+            VentanaPrincipal vp = new VentanaPrincipal();
+            vp.setVisible(true);
         } else {
             JOptionPane.showMessageDialog(null, "Error: usuario inexistente");
             System.out.println("Error: usuario inexistente");

@@ -6,9 +6,11 @@
 package Componentes;
 
 import java.awt.Color;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -42,7 +44,7 @@ public class BotonAgregar extends JButton {
                 setBackground(new Color(0,204,51));
             }
         });
-    }
+    }    
     
     public static void main(String[] args) {
         
