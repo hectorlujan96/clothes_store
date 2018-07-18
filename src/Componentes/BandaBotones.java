@@ -9,6 +9,8 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.JButton;
@@ -111,6 +113,13 @@ public class BandaBotones extends JPanel {
             @Override
             public void mouseExited(MouseEvent e) {
                 eliminar.setBackground(new Color(255,51,51));
+            }
+        });
+        
+        agregar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                System.out.println("psdpoasmda");
             }
         });
         
