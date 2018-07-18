@@ -5,12 +5,12 @@
  */
 package Vistas;
 
+import Conexion.Conexion;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
-import Conexion.Conexion;
 
 /**
  *
@@ -151,6 +151,7 @@ private Conexion conexion = Conexion.getInstance();
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
+        
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -169,6 +170,7 @@ private Conexion conexion = Conexion.getInstance();
         }
         //</editor-fold>
 
+            
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
