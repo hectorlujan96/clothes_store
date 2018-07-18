@@ -6,6 +6,7 @@
 package Vistas;
 
 
+import Componentes.BandaBotones;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 /**
@@ -42,7 +43,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         panel2 = new javax.swing.JPanel();
-        bandaBotones1 = new Componentes.BandaBotones();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -131,17 +131,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         panel2.setLayout(panel2Layout);
         panel2Layout.setHorizontalGroup(
             panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panel2Layout.createSequentialGroup()
-                .addGap(32, 32, 32)
-                .addComponent(bandaBotones1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(361, Short.MAX_VALUE))
+            .addGap(0, 893, Short.MAX_VALUE)
         );
         panel2Layout.setVerticalGroup(
             panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panel2Layout.createSequentialGroup()
-                .addGap(67, 67, 67)
-                .addComponent(bandaBotones1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(297, Short.MAX_VALUE))
+            .addGap(0, 399, Short.MAX_VALUE)
         );
 
         panel1.add(panel2, java.awt.BorderLayout.CENTER);
@@ -200,7 +194,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private Componentes.BandaBotones bandaBotones1;
     private Componentes.BotonesAzules botonesAzules2;
     private Componentes.BotonesAzules botonesAzules3;
     private Componentes.BotonesAzules botonesAzules4;

@@ -116,13 +116,6 @@ public class BandaBotones extends JPanel {
             }
         });
         
-        agregar.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent ae) {
-                System.out.println("psdpoasmda");
-            }
-        });
-        
     }    
     
     public static void main(String[] args) {
