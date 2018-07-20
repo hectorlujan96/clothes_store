@@ -21,13 +21,15 @@ public class VentanaPrincipal extends javax.swing.JFrame {
      */
     
     Clientes cliente1 = new Clientes();
-    Empleado empleado1 = new Empleado();
+    Empleados empleado1 = new Empleados();
     Proveedores proveedor1 = new Proveedores();
     Ventas venta1 = new Ventas();
+    Productos producto1 = new Productos();
     
     public VentanaPrincipal() {
         initComponents();
         setLocationRelativeTo(null);
+        setResizable(false);
         panel1.add(venta1, BorderLayout.CENTER);
         panel2.setVisible(false);
         venta1.setVisible(true);
@@ -46,7 +48,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         panel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         btnVentas = new Componentes.BotonesAzules();
-        botonesAzules4 = new Componentes.BotonesAzules();
+        btnProductos = new Componentes.BotonesAzules();
         botonesAzules5 = new Componentes.BotonesAzules();
         botonesAzules6 = new Componentes.BotonesAzules();
         botonesAzules7 = new Componentes.BotonesAzules();
@@ -74,13 +76,13 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         });
         jPanel2.add(btnVentas, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, -1, -1));
 
-        botonesAzules4.setText("Productos");
-        botonesAzules4.addActionListener(new java.awt.event.ActionListener() {
+        btnProductos.setText("Productos");
+        btnProductos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonesAzules4ActionPerformed(evt);
+                btnProductosActionPerformed(evt);
             }
         });
-        jPanel2.add(botonesAzules4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 330, -1, -1));
+        jPanel2.add(btnProductos, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, -1, -1));
 
         botonesAzules5.setText("Empleados");
         botonesAzules5.addActionListener(new java.awt.event.ActionListener() {
@@ -88,7 +90,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 botonesAzules5ActionPerformed(evt);
             }
         });
-        jPanel2.add(botonesAzules5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 390, -1, -1));
+        jPanel2.add(botonesAzules5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 340, -1, -1));
 
         botonesAzules6.setText("Clientes");
         botonesAzules6.addActionListener(new java.awt.event.ActionListener() {
@@ -96,7 +98,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 botonesAzules6ActionPerformed(evt);
             }
         });
-        jPanel2.add(botonesAzules6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 450, -1, -1));
+        jPanel2.add(botonesAzules6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 400, -1, -1));
 
         botonesAzules7.setText("Proveedores");
         botonesAzules7.addActionListener(new java.awt.event.ActionListener() {
@@ -104,14 +106,14 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 botonesAzules7ActionPerformed(evt);
             }
         });
-        jPanel2.add(botonesAzules7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 510, -1, -1));
+        jPanel2.add(botonesAzules7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 460, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 102, 102));
         jLabel1.setText("Boutique: \"Juanita\"");
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, -1, 40));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\yairf\\Documents\\Proyecto\\clothes_store\\ICON\\if_shirt-star_532788.png")); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/if_shirt-star_532788.png"))); // NOI18N
         jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 130, 140));
 
         botonesAzules1.setText("Compras");
@@ -120,7 +122,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 botonesAzules1ActionPerformed(evt);
             }
         });
-        jPanel2.add(botonesAzules1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, -1, -1));
+        jPanel2.add(botonesAzules1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 520, -1, -1));
 
         panel1.add(jPanel2, java.awt.BorderLayout.LINE_START);
 
@@ -177,6 +179,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         empleado1.setVisible(false);
         cliente1.setVisible(false);
         venta1.setVisible(false);
+        producto1.setVisible(false);
     }//GEN-LAST:event_botonesAzules7ActionPerformed
 
     private void botonesAzules6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonesAzules6ActionPerformed
@@ -189,27 +192,39 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         cliente1.setVisible(true);
         empleado1.setVisible(false);
         proveedor1.setVisible(false);
+        producto1.setVisible(false);
     }//GEN-LAST:event_botonesAzules6ActionPerformed
 
     private void botonesAzules5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonesAzules5ActionPerformed
         // TODO add your handling code here:
 
-        panel1.add(empleado1, BorderLayout.CENTER);
+       panel1.add(empleado1, BorderLayout.CENTER);
         panel2.setVisible(false);
 
         empleado1.setVisible(true);
         cliente1.setVisible(false);
         proveedor1.setVisible(false);
         venta1.setVisible(false);
+        producto1.setVisible(false);
     }//GEN-LAST:event_botonesAzules5ActionPerformed
 
     private void botonesAzules1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonesAzules1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_botonesAzules1ActionPerformed
 
-    private void botonesAzules4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonesAzules4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_botonesAzules4ActionPerformed
+    private void btnProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProductosActionPerformed
+        // TODO add your handling code here
+        
+        panel1.add(producto1, BorderLayout.CENTER);
+        panel2.setVisible(false);
+
+        producto1.setVisible(true);
+        empleado1.setVisible(false);
+        cliente1.setVisible(false);
+        proveedor1.setVisible(false);
+        venta1.setVisible(false);
+        
+    }//GEN-LAST:event_btnProductosActionPerformed
 
     private void btnVentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVentasActionPerformed
         // TODO add your handling code here:
@@ -219,8 +234,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         
         venta1.setVisible(true);
         cliente1.setVisible(false);
-        empleado1.setVisible(false);
+        //empleado1.setVisible(false);
         proveedor1.setVisible(false);
+        producto1.setVisible(false);
         
     }//GEN-LAST:event_btnVentasActionPerformed
 
@@ -261,10 +277,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private Componentes.BotonesAzules botonesAzules1;
-    private Componentes.BotonesAzules botonesAzules4;
     private Componentes.BotonesAzules botonesAzules5;
     private Componentes.BotonesAzules botonesAzules6;
     private Componentes.BotonesAzules botonesAzules7;
+    private Componentes.BotonesAzules btnProductos;
     private Componentes.BotonesAzules btnVentas;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

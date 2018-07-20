@@ -67,11 +67,11 @@ public class Clientes extends javax.swing.JPanel {
         jPanel5.setBackground(new java.awt.Color(218, 217, 217));
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Gadugi", 3, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Arial", 3, 20)); // NOI18N
         jLabel1.setText("Agregar Cliente");
         jPanel5.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(13, 14, 160, 30));
 
-        jLabel10.setFont(new java.awt.Font("SimSun", 2, 18)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Arial", 3, 18)); // NOI18N
         jLabel10.setText("Nombre:");
         jPanel5.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, -1, 20));
 
@@ -88,7 +88,7 @@ public class Clientes extends javax.swing.JPanel {
         });
         jPanel5.add(jTextField8, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 80, 170, 40));
 
-        jLabel13.setFont(new java.awt.Font("SimSun", 2, 18)); // NOI18N
+        jLabel13.setFont(new java.awt.Font("Arial", 3, 18)); // NOI18N
         jLabel13.setText("Apellido M:");
         jPanel5.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 90, -1, 20));
 
@@ -118,11 +118,11 @@ public class Clientes extends javax.swing.JPanel {
         });
         jPanel5.add(jTextField11, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 80, 170, 40));
 
-        jLabel14.setFont(new java.awt.Font("SimSun", 2, 18)); // NOI18N
+        jLabel14.setFont(new java.awt.Font("Arial", 3, 18)); // NOI18N
         jLabel14.setText("Apellido P:");
         jPanel5.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 90, -1, 20));
 
-        jLabel12.setFont(new java.awt.Font("SimSun", 2, 18)); // NOI18N
+        jLabel12.setFont(new java.awt.Font("Arial", 3, 18)); // NOI18N
         jLabel12.setText("RFC:");
         jPanel5.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, -1, 20));
 
@@ -156,7 +156,7 @@ public class Clientes extends javax.swing.JPanel {
         jSeparator9.setForeground(new java.awt.Color(0, 0, 0));
         jPanel5.add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 200, 170, 10));
 
-        jLabel16.setFont(new java.awt.Font("SimSun", 2, 18)); // NOI18N
+        jLabel16.setFont(new java.awt.Font("Arial", 3, 18)); // NOI18N
         jLabel16.setText("Fecha Nacimiento:");
         jPanel5.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 170, -1, 20));
 
@@ -176,7 +176,7 @@ public class Clientes extends javax.swing.JPanel {
         jSeparator15.setForeground(new java.awt.Color(0, 0, 0));
         jPanel5.add(jSeparator15, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 270, 370, 10));
 
-        jLabel17.setFont(new java.awt.Font("SimSun", 2, 18)); // NOI18N
+        jLabel17.setFont(new java.awt.Font("Arial", 3, 18)); // NOI18N
         jLabel17.setText("Domicilio:");
         jPanel5.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, -1, 20));
 
@@ -189,7 +189,7 @@ public class Clientes extends javax.swing.JPanel {
         });
         jPanel5.add(jTextField15, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 230, 370, 40));
 
-        jLabel15.setFont(new java.awt.Font("SimSun", 2, 18)); // NOI18N
+        jLabel15.setFont(new java.awt.Font("Arial", 3, 18)); // NOI18N
         jLabel15.setText("Telefono:");
         jPanel5.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 170, -1, 20));
 
@@ -217,7 +217,7 @@ public class Clientes extends javax.swing.JPanel {
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setFont(new java.awt.Font("Gadugi", 3, 18)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Arial", 3, 20)); // NOI18N
         jLabel2.setText("Buscar Cliente");
         jPanel4.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(13, 14, 160, 30));
 
@@ -230,13 +230,13 @@ public class Clientes extends javax.swing.JPanel {
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Nombre", "Apellido M", "Apellido P", "RFC", "Telefono", "Sexo:", "Domicilio"
+                "Nombre", "Apellido M", "Apellido P", "RFC", "Telefono", "Sexo", "Fecha", "Domicilio"
             }
         ));
         jScrollPane2.setViewportView(jTable2);

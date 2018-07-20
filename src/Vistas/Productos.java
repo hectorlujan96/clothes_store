@@ -9,12 +9,12 @@ package Vistas;
  *
  * @author yairf
  */
-public class Proveedores extends javax.swing.JPanel {
+public class Productos extends javax.swing.JPanel {
 
     /**
-     * Creates new form Proveedores
+     * Creates new form Prodeuctos
      */
-    public Proveedores() {
+    public Productos() {
         initComponents();
     }
 
@@ -27,6 +27,12 @@ public class Proveedores extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel4 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable2 = new javax.swing.JTable();
+        botonesAzules2 = new Componentes.BotonesAzules();
         jPanel5 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
@@ -41,33 +47,67 @@ public class Proveedores extends javax.swing.JPanel {
         jLabel12 = new javax.swing.JLabel();
         jTextField12 = new javax.swing.JTextField();
         jSeparator12 = new javax.swing.JSeparator();
+        jTextField9 = new javax.swing.JTextField();
+        jSeparator9 = new javax.swing.JSeparator();
+        jLabel16 = new javax.swing.JLabel();
+        jTextField14 = new javax.swing.JTextField();
+        jSeparator14 = new javax.swing.JSeparator();
         jSeparator15 = new javax.swing.JSeparator();
         jLabel17 = new javax.swing.JLabel();
         jTextField15 = new javax.swing.JTextField();
+        jLabel15 = new javax.swing.JLabel();
         botonesAzules3 = new Componentes.BotonesAzules();
-        jPanel4 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
-        botonesAzules2 = new Componentes.BotonesAzules();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel2.setFont(new java.awt.Font("Arial", 3, 20)); // NOI18N
+        jLabel2.setText("Buscar Producto");
+        jPanel4.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(13, 14, 160, 30));
+
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
+        jPanel4.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 10, 270, 40));
+
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "ID", "Precio Compra", "Precio Venta", "Marca", "Talla", "Cantidad", "Observaciones"
+            }
+        ));
+        jScrollPane2.setViewportView(jTable2);
+
+        jPanel4.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 890, 180));
+
+        botonesAzules2.setText("Eliminar");
+        jPanel4.add(botonesAzules2, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 20, 120, -1));
+
+        add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 320, 890, 300));
 
         jPanel5.setBackground(new java.awt.Color(218, 217, 217));
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Arial", 3, 20)); // NOI18N
-        jLabel1.setText("Agregar Proveedor");
-        jPanel5.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(13, 14, 190, 30));
+        jLabel1.setText("Agregar Producto");
+        jPanel5.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(13, 14, 180, 30));
 
         jLabel10.setFont(new java.awt.Font("Arial", 3, 18)); // NOI18N
         jLabel10.setText("ID:");
-        jPanel5.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, -1, 20));
+        jPanel5.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, -1, 20));
 
         jSeparator8.setForeground(new java.awt.Color(0, 0, 0));
-        jPanel5.add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 120, 170, 10));
+        jPanel5.add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 120, 160, 10));
 
         jTextField8.setBackground(new java.awt.Color(218, 217, 217));
         jTextField8.setForeground(new java.awt.Color(102, 153, 255));
@@ -77,11 +117,11 @@ public class Proveedores extends javax.swing.JPanel {
                 jTextField8ActionPerformed(evt);
             }
         });
-        jPanel5.add(jTextField8, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 80, 170, 40));
+        jPanel5.add(jTextField8, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 80, 160, 40));
 
         jLabel13.setFont(new java.awt.Font("Arial", 3, 18)); // NOI18N
-        jLabel13.setText("Razón Social:");
-        jPanel5.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 90, -1, 20));
+        jLabel13.setText("Precio Compra:");
+        jPanel5.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 90, -1, 20));
 
         jSeparator10.setForeground(new java.awt.Color(0, 0, 0));
         jPanel5.add(jSeparator10, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 120, 170, 10));
@@ -97,7 +137,7 @@ public class Proveedores extends javax.swing.JPanel {
         jPanel5.add(jTextField10, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 80, 170, 40));
 
         jSeparator11.setForeground(new java.awt.Color(0, 0, 0));
-        jPanel5.add(jSeparator11, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 120, 170, 10));
+        jPanel5.add(jSeparator11, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 120, 150, 10));
 
         jTextField11.setBackground(new java.awt.Color(218, 217, 217));
         jTextField11.setForeground(new java.awt.Color(102, 153, 255));
@@ -107,14 +147,14 @@ public class Proveedores extends javax.swing.JPanel {
                 jTextField11ActionPerformed(evt);
             }
         });
-        jPanel5.add(jTextField11, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 80, 170, 40));
+        jPanel5.add(jTextField11, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 80, 150, 40));
 
         jLabel14.setFont(new java.awt.Font("Arial", 3, 18)); // NOI18N
-        jLabel14.setText("Telefono:");
-        jPanel5.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 90, -1, 20));
+        jLabel14.setText("Precio venta:");
+        jPanel5.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 90, -1, 20));
 
         jLabel12.setFont(new java.awt.Font("Arial", 3, 18)); // NOI18N
-        jLabel12.setText("Correo:");
+        jLabel12.setText("Marca:");
         jPanel5.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, -1, 20));
 
         jTextField12.setBackground(new java.awt.Color(218, 217, 217));
@@ -125,67 +165,70 @@ public class Proveedores extends javax.swing.JPanel {
                 jTextField12ActionPerformed(evt);
             }
         });
-        jPanel5.add(jTextField12, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 160, 170, 40));
+        jPanel5.add(jTextField12, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 160, 160, 40));
 
         jSeparator12.setForeground(new java.awt.Color(0, 0, 0));
-        jPanel5.add(jSeparator12, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 200, 170, 10));
+        jPanel5.add(jSeparator12, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 200, 160, 10));
+
+        jTextField9.setBackground(new java.awt.Color(218, 217, 217));
+        jTextField9.setForeground(new java.awt.Color(102, 153, 255));
+        jTextField9.setBorder(null);
+        jTextField9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField9ActionPerformed(evt);
+            }
+        });
+        jPanel5.add(jTextField9, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 160, 170, 40));
+
+        jSeparator9.setForeground(new java.awt.Color(0, 0, 0));
+        jPanel5.add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 200, 170, 10));
+
+        jLabel16.setFont(new java.awt.Font("Arial", 3, 18)); // NOI18N
+        jLabel16.setText("Cantidad:");
+        jPanel5.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 170, -1, 20));
+
+        jTextField14.setBackground(new java.awt.Color(218, 217, 217));
+        jTextField14.setForeground(new java.awt.Color(102, 153, 255));
+        jTextField14.setBorder(null);
+        jTextField14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField14ActionPerformed(evt);
+            }
+        });
+        jPanel5.add(jTextField14, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 160, 120, 40));
+
+        jSeparator14.setForeground(new java.awt.Color(0, 0, 0));
+        jPanel5.add(jSeparator14, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 200, 120, 10));
 
         jSeparator15.setForeground(new java.awt.Color(0, 0, 0));
-        jPanel5.add(jSeparator15, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 200, 370, 10));
+        jPanel5.add(jSeparator15, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 270, 390, 10));
 
         jLabel17.setFont(new java.awt.Font("Arial", 3, 18)); // NOI18N
-        jLabel17.setText("Dirección:");
-        jPanel5.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 170, -1, 20));
+        jLabel17.setText("Observaciones:");
+        jPanel5.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, -1, 20));
 
         jTextField15.setBackground(new java.awt.Color(218, 217, 217));
-        jTextField15.setForeground(new java.awt.Color(102, 153, 255));
         jTextField15.setBorder(null);
         jTextField15.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField15ActionPerformed(evt);
             }
         });
-        jPanel5.add(jTextField15, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 160, 370, 40));
+        jPanel5.add(jTextField15, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 230, 390, 40));
 
-        botonesAzules3.setText("Agregar:");
-        jPanel5.add(botonesAzules3, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 220, 120, -1));
+        jLabel15.setFont(new java.awt.Font("Arial", 3, 18)); // NOI18N
+        jLabel15.setText("Talla:");
+        jPanel5.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 170, -1, 20));
+
+        botonesAzules3.setText("Agregar");
+        jPanel5.add(botonesAzules3, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 230, 120, -1));
 
         add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 890, 300));
-
-        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel2.setFont(new java.awt.Font("Gadugi", 3, 18)); // NOI18N
-        jLabel2.setText("Buscar Proveedor");
-        jPanel4.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(13, 14, 160, 30));
-
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
-            }
-        });
-        jPanel4.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 10, 270, 40));
-
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
-            },
-            new String [] {
-                "ID", "Razon Social", "Telefono", "Dirección", "Correo"
-            }
-        ));
-        jScrollPane2.setViewportView(jTable2);
-
-        jPanel4.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 890, 180));
-
-        botonesAzules2.setText("Eliminar");
-        jPanel4.add(botonesAzules2, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 20, 120, -1));
-
-        add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 320, 890, 300));
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void jTextField8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField8ActionPerformed
         // TODO add your handling code here:
@@ -203,13 +246,17 @@ public class Proveedores extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField12ActionPerformed
 
+    private void jTextField9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField9ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField9ActionPerformed
+
+    private void jTextField14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField14ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField14ActionPerformed
+
     private void jTextField15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField15ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField15ActionPerformed
-
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -220,6 +267,8 @@ public class Proveedores extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel4;
@@ -228,14 +277,18 @@ public class Proveedores extends javax.swing.JPanel {
     private javax.swing.JSeparator jSeparator10;
     private javax.swing.JSeparator jSeparator11;
     private javax.swing.JSeparator jSeparator12;
+    private javax.swing.JSeparator jSeparator14;
     private javax.swing.JSeparator jSeparator15;
     private javax.swing.JSeparator jSeparator8;
+    private javax.swing.JSeparator jSeparator9;
     private javax.swing.JTable jTable2;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField11;
     private javax.swing.JTextField jTextField12;
+    private javax.swing.JTextField jTextField14;
     private javax.swing.JTextField jTextField15;
     private javax.swing.JTextField jTextField8;
+    private javax.swing.JTextField jTextField9;
     // End of variables declaration//GEN-END:variables
 }

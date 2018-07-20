@@ -46,6 +46,7 @@ public class Ventas extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        jLabel6 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setMinimumSize(new java.awt.Dimension(900, 620));
@@ -59,11 +60,11 @@ public class Ventas extends javax.swing.JPanel {
 
         jScrollPane2.setViewportView(jList1);
 
-        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 480, 300));
+        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 490, 300));
 
-        jLabel3.setFont(new java.awt.Font("Gadugi", 1, 18)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Arial", 3, 20)); // NOI18N
         jLabel3.setText("Cambio:");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 450, 80, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 450, 80, -1));
 
         jTextField1.setBorder(null);
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
@@ -71,9 +72,9 @@ public class Ventas extends javax.swing.JPanel {
                 jTextField1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 450, 120, 30));
+        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 450, 120, 30));
 
-        jLabel4.setFont(new java.awt.Font("Gadugi", 1, 18)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Arial", 3, 20)); // NOI18N
         jLabel4.setText("Total:");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 370, -1, -1));
 
@@ -83,9 +84,9 @@ public class Ventas extends javax.swing.JPanel {
                 jTextField3ActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 370, 220, 30));
+        jPanel1.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 370, 180, 30));
 
-        jLabel5.setFont(new java.awt.Font("Gadugi", 1, 18)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Arial", 3, 20)); // NOI18N
         jLabel5.setText("Recibó:");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 450, -1, -1));
 
@@ -98,12 +99,12 @@ public class Ventas extends javax.swing.JPanel {
         jPanel1.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 450, 120, 30));
 
         botonesAzules1.setText("Aceptar");
-        jPanel1.add(botonesAzules1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 510, -1, -1));
+        jPanel1.add(botonesAzules1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 510, -1, -1));
 
         botonesAzules2.setText("Cancelar");
-        jPanel1.add(botonesAzules2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 510, -1, -1));
+        jPanel1.add(botonesAzules2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 510, -1, -1));
 
-        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 10, 500, 570));
+        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 10, 510, 570));
 
         jPanel2.setBackground(new java.awt.Color(218, 217, 217));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -124,7 +125,7 @@ public class Ventas extends javax.swing.JPanel {
         });
         jPanel2.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 200, 100, 40));
 
-        jButton1.setIcon(new javax.swing.ImageIcon("C:\\Users\\yairf\\Documents\\Proyecto\\clothes_store\\ICON\\if_Tick_2001877 (1).png")); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/if_Tick_2001877 (1).png"))); // NOI18N
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -132,12 +133,12 @@ public class Ventas extends javax.swing.JPanel {
         });
         jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 60, 40, 40));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\yairf\\Documents\\Proyecto\\clothes_store\\ICON\\Playera.png")); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Playera.png"))); // NOI18N
         jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 260, -1, -1));
 
-        jLabel1.setFont(new java.awt.Font("Gadugi", 3, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Arial", 3, 20)); // NOI18N
         jLabel1.setText("Cantidad:");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 150, 90, -1));
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 160, 110, -1));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -147,12 +148,15 @@ public class Ventas extends javax.swing.JPanel {
                 {null, null}
             },
             new String [] {
-                "Nombre:", "Precio:"
+                "Nombre", "Precio"
             }
         ));
         jScrollPane1.setViewportView(jTable1);
 
         jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 430, 342, 110));
+
+        jLabel6.setText("1");
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
         add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 370, 570));
     }// </editor-fold>//GEN-END:initComponents
@@ -191,6 +195,7 @@ public class Ventas extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JList<String> jList1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

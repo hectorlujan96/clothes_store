@@ -9,12 +9,12 @@ package Vistas;
  *
  * @author yairf
  */
-public class Proveedores extends javax.swing.JPanel {
+public class Empleados extends javax.swing.JPanel {
 
     /**
-     * Creates new form Proveedores
+     * Creates new form Empleados
      */
-    public Proveedores() {
+    public Empleados() {
         initComponents();
     }
 
@@ -41,16 +41,25 @@ public class Proveedores extends javax.swing.JPanel {
         jLabel12 = new javax.swing.JLabel();
         jTextField12 = new javax.swing.JTextField();
         jSeparator12 = new javax.swing.JSeparator();
+        jLabel11 = new javax.swing.JLabel();
+        jTextField9 = new javax.swing.JTextField();
+        jSeparator9 = new javax.swing.JSeparator();
+        jLabel16 = new javax.swing.JLabel();
+        jTextField14 = new javax.swing.JTextField();
+        jSeparator14 = new javax.swing.JSeparator();
         jSeparator15 = new javax.swing.JSeparator();
         jLabel17 = new javax.swing.JLabel();
         jTextField15 = new javax.swing.JTextField();
-        botonesAzules3 = new Componentes.BotonesAzules();
+        jLabel15 = new javax.swing.JLabel();
+        jRadioButton1 = new javax.swing.JRadioButton();
+        jRadioButton2 = new javax.swing.JRadioButton();
+        botonesAzules2 = new Componentes.BotonesAzules();
         jPanel4 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
-        botonesAzules2 = new Componentes.BotonesAzules();
+        botonesAzules3 = new Componentes.BotonesAzules();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -58,12 +67,12 @@ public class Proveedores extends javax.swing.JPanel {
         jPanel5.setBackground(new java.awt.Color(218, 217, 217));
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Arial", 3, 20)); // NOI18N
-        jLabel1.setText("Agregar Proveedor");
+        jLabel1.setFont(new java.awt.Font("Gadugi", 3, 20)); // NOI18N
+        jLabel1.setText("Agregar Empleado");
         jPanel5.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(13, 14, 190, 30));
 
         jLabel10.setFont(new java.awt.Font("Arial", 3, 18)); // NOI18N
-        jLabel10.setText("ID:");
+        jLabel10.setText("Nombre:");
         jPanel5.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, -1, 20));
 
         jSeparator8.setForeground(new java.awt.Color(0, 0, 0));
@@ -80,7 +89,7 @@ public class Proveedores extends javax.swing.JPanel {
         jPanel5.add(jTextField8, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 80, 170, 40));
 
         jLabel13.setFont(new java.awt.Font("Arial", 3, 18)); // NOI18N
-        jLabel13.setText("Razón Social:");
+        jLabel13.setText("Apellido M:");
         jPanel5.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 90, -1, 20));
 
         jSeparator10.setForeground(new java.awt.Color(0, 0, 0));
@@ -110,11 +119,11 @@ public class Proveedores extends javax.swing.JPanel {
         jPanel5.add(jTextField11, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 80, 170, 40));
 
         jLabel14.setFont(new java.awt.Font("Arial", 3, 18)); // NOI18N
-        jLabel14.setText("Telefono:");
+        jLabel14.setText("Apellido P:");
         jPanel5.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 90, -1, 20));
 
         jLabel12.setFont(new java.awt.Font("Arial", 3, 18)); // NOI18N
-        jLabel12.setText("Correo:");
+        jLabel12.setText("ID:");
         jPanel5.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, -1, 20));
 
         jTextField12.setBackground(new java.awt.Color(218, 217, 217));
@@ -130,59 +139,112 @@ public class Proveedores extends javax.swing.JPanel {
         jSeparator12.setForeground(new java.awt.Color(0, 0, 0));
         jPanel5.add(jSeparator12, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 200, 170, 10));
 
+        jLabel11.setFont(new java.awt.Font("Arial", 3, 18)); // NOI18N
+        jLabel11.setText("Sexo:");
+        jPanel5.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 240, -1, 20));
+
+        jTextField9.setBackground(new java.awt.Color(218, 217, 217));
+        jTextField9.setForeground(new java.awt.Color(102, 153, 255));
+        jTextField9.setBorder(null);
+        jTextField9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField9ActionPerformed(evt);
+            }
+        });
+        jPanel5.add(jTextField9, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 160, 170, 40));
+
+        jSeparator9.setForeground(new java.awt.Color(0, 0, 0));
+        jPanel5.add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 200, 170, 10));
+
+        jLabel16.setFont(new java.awt.Font("Arial", 3, 18)); // NOI18N
+        jLabel16.setText("Fecha Nacimiento:");
+        jPanel5.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 170, -1, 20));
+
+        jTextField14.setBackground(new java.awt.Color(218, 217, 217));
+        jTextField14.setForeground(new java.awt.Color(102, 153, 255));
+        jTextField14.setBorder(null);
+        jTextField14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField14ActionPerformed(evt);
+            }
+        });
+        jPanel5.add(jTextField14, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 160, 120, 40));
+
+        jSeparator14.setForeground(new java.awt.Color(0, 0, 0));
+        jPanel5.add(jSeparator14, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 200, 120, 10));
+
         jSeparator15.setForeground(new java.awt.Color(0, 0, 0));
-        jPanel5.add(jSeparator15, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 200, 370, 10));
+        jPanel5.add(jSeparator15, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 270, 370, 10));
 
         jLabel17.setFont(new java.awt.Font("Arial", 3, 18)); // NOI18N
-        jLabel17.setText("Dirección:");
-        jPanel5.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 170, -1, 20));
+        jLabel17.setText("Domicilio:");
+        jPanel5.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, -1, 20));
 
         jTextField15.setBackground(new java.awt.Color(218, 217, 217));
-        jTextField15.setForeground(new java.awt.Color(102, 153, 255));
         jTextField15.setBorder(null);
         jTextField15.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField15ActionPerformed(evt);
             }
         });
-        jPanel5.add(jTextField15, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 160, 370, 40));
+        jPanel5.add(jTextField15, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 230, 370, 40));
 
-        botonesAzules3.setText("Agregar:");
-        jPanel5.add(botonesAzules3, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 220, 120, -1));
+        jLabel15.setFont(new java.awt.Font("Arial", 3, 18)); // NOI18N
+        jLabel15.setText("Telefono:");
+        jPanel5.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 170, -1, 20));
+
+        jRadioButton1.setBackground(new java.awt.Color(218, 217, 217));
+        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton1ActionPerformed(evt);
+            }
+        });
+        jPanel5.add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 240, 20, 20));
+
+        jRadioButton2.setBackground(new java.awt.Color(218, 217, 217));
+        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton2ActionPerformed(evt);
+            }
+        });
+        jPanel5.add(jRadioButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 240, 20, 20));
+
+        botonesAzules2.setText("Agregar");
+        jPanel5.add(botonesAzules2, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 230, 120, -1));
 
         add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 890, 300));
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setFont(new java.awt.Font("Gadugi", 3, 18)); // NOI18N
-        jLabel2.setText("Buscar Proveedor");
-        jPanel4.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(13, 14, 160, 30));
+        jLabel2.setFont(new java.awt.Font("Gadugi", 3, 20)); // NOI18N
+        jLabel2.setText("Buscar Empleado");
+        jPanel4.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(3, 14, 170, 30));
 
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField1ActionPerformed(evt);
             }
         });
-        jPanel4.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 10, 270, 40));
+        jPanel4.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 10, 270, 40));
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "ID", "Razon Social", "Telefono", "Dirección", "Correo"
+                "ID", "Nombre", "Apellido P", "Apellido M", "Telefono", "Fecha ", "Domicilio", "Sexo"
             }
         ));
         jScrollPane2.setViewportView(jTable2);
 
         jPanel4.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 890, 180));
 
-        botonesAzules2.setText("Eliminar");
-        jPanel4.add(botonesAzules2, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 20, 120, -1));
+        botonesAzules3.setText("Eliminar");
+        jPanel4.add(botonesAzules3, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 20, 120, -1));
 
         add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 320, 890, 300));
     }// </editor-fold>//GEN-END:initComponents
@@ -203,9 +265,25 @@ public class Proveedores extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField12ActionPerformed
 
+    private void jTextField9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField9ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField9ActionPerformed
+
+    private void jTextField14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField14ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField14ActionPerformed
+
     private void jTextField15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField15ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField15ActionPerformed
+
+    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton1ActionPerformed
+
+    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton2ActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
@@ -217,25 +295,34 @@ public class Proveedores extends javax.swing.JPanel {
     private Componentes.BotonesAzules botonesAzules3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JRadioButton jRadioButton1;
+    private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator10;
     private javax.swing.JSeparator jSeparator11;
     private javax.swing.JSeparator jSeparator12;
+    private javax.swing.JSeparator jSeparator14;
     private javax.swing.JSeparator jSeparator15;
     private javax.swing.JSeparator jSeparator8;
+    private javax.swing.JSeparator jSeparator9;
     private javax.swing.JTable jTable2;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField11;
     private javax.swing.JTextField jTextField12;
+    private javax.swing.JTextField jTextField14;
     private javax.swing.JTextField jTextField15;
     private javax.swing.JTextField jTextField8;
+    private javax.swing.JTextField jTextField9;
     // End of variables declaration//GEN-END:variables
 }
