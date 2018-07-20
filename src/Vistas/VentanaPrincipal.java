@@ -17,10 +17,20 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
     /**
      * Creates new form VentanaPrincipal
+     * 
      */
+    
+    Clientes cliente1 = new Clientes();
+    Empleado empleado1 = new Empleado();
+    Proveedores proveedor1 = new Proveedores();
+    Ventas venta1 = new Ventas();
+    
     public VentanaPrincipal() {
         initComponents();
         setLocationRelativeTo(null);
+        panel1.add(venta1, BorderLayout.CENTER);
+        panel2.setVisible(false);
+        venta1.setVisible(true);
     }
 
     /**
@@ -35,27 +45,42 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jScrollBar1 = new javax.swing.JScrollBar();
         panel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        botonesAzules2 = new Componentes.BotonesAzules();
-        botonesAzules3 = new Componentes.BotonesAzules();
+        btnVentas = new Componentes.BotonesAzules();
         botonesAzules4 = new Componentes.BotonesAzules();
         botonesAzules5 = new Componentes.BotonesAzules();
         botonesAzules6 = new Componentes.BotonesAzules();
         botonesAzules7 = new Componentes.BotonesAzules();
-        jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        botonesAzules1 = new Componentes.BotonesAzules();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         panel2 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         panel1.setLayout(new java.awt.BorderLayout());
 
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setBackground(new java.awt.Color(218, 217, 217));
+        jPanel2.setPreferredSize(new java.awt.Dimension(180, 650));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        botonesAzules2.setText("Compras");
-
-        botonesAzules3.setText("Ventas");
+        btnVentas.setText("Ventas");
+        btnVentas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVentasActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnVentas, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, -1, -1));
 
         botonesAzules4.setText("Productos");
+        botonesAzules4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonesAzules4ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(botonesAzules4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 330, -1, -1));
 
         botonesAzules5.setText("Empleados");
         botonesAzules5.addActionListener(new java.awt.event.ActionListener() {
@@ -63,66 +88,53 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 botonesAzules5ActionPerformed(evt);
             }
         });
+        jPanel2.add(botonesAzules5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 390, -1, -1));
 
         botonesAzules6.setText("Clientes");
+        botonesAzules6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonesAzules6ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(botonesAzules6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 450, -1, -1));
 
         botonesAzules7.setText("Proveedores");
+        botonesAzules7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonesAzules7ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(botonesAzules7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 510, -1, -1));
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(botonesAzules3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(botonesAzules7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(botonesAzules5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(botonesAzules4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(botonesAzules6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(botonesAzules2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(22, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(44, 44, 44)
-                .addComponent(botonesAzules2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(botonesAzules3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(botonesAzules4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(botonesAzules5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(botonesAzules6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(botonesAzules7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
+        jLabel1.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 102, 102));
+        jLabel1.setText("Boutique: \"Juanita\"");
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, -1, 40));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\yairf\\Documents\\Proyecto\\clothes_store\\ICON\\if_shirt-star_532788.png")); // NOI18N
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 130, 140));
+
+        botonesAzules1.setText("Compras");
+        botonesAzules1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonesAzules1ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(botonesAzules1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, -1, -1));
 
         panel1.add(jPanel2, java.awt.BorderLayout.LINE_START);
 
-        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel3.setBackground(new java.awt.Color(218, 217, 217));
+        jPanel3.setMinimumSize(new java.awt.Dimension(1082, 50));
+        jPanel3.setPreferredSize(new java.awt.Dimension(1100, 80));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
-        jLabel1.setText("Boutique: \"Juanita\"");
+        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\yairf\\Documents\\Proyecto\\clothes_store\\ICON\\if_person_5_1376035.png")); // NOI18N
+        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 20, -1, -1));
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(jLabel1)
-                .addContainerGap(586, Short.MAX_VALUE))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addGap(0, 11, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
+        jLabel4.setFont(new java.awt.Font("Tahoma", 2, 13)); // NOI18N
+        jLabel4.setText("YairFran12");
+        jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 60, 70, -1));
 
         panel1.add(jPanel3, java.awt.BorderLayout.PAGE_START);
 
@@ -132,11 +144,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         panel2.setLayout(panel2Layout);
         panel2Layout.setHorizontalGroup(
             panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 558, Short.MAX_VALUE)
+            .addGap(0, 912, Short.MAX_VALUE)
         );
         panel2Layout.setVerticalGroup(
             panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 399, Short.MAX_VALUE)
+            .addGap(0, 596, Short.MAX_VALUE)
         );
 
         panel1.add(panel2, java.awt.BorderLayout.CENTER);
@@ -145,23 +157,72 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panel1, javax.swing.GroupLayout.DEFAULT_SIZE, 752, Short.MAX_VALUE)
+            .addComponent(panel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1092, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panel1, javax.swing.GroupLayout.DEFAULT_SIZE, 676, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void botonesAzules7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonesAzules7ActionPerformed
+        // TODO add your handling code here:
+
+        panel1.add(proveedor1, BorderLayout.CENTER);
+        panel2.setVisible(false);
+
+        proveedor1.setVisible(true);
+        empleado1.setVisible(false);
+        cliente1.setVisible(false);
+        venta1.setVisible(false);
+    }//GEN-LAST:event_botonesAzules7ActionPerformed
+
+    private void botonesAzules6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonesAzules6ActionPerformed
+        // TODO add your handling code here:
+
+        panel1.add(cliente1, BorderLayout.CENTER);
+        panel2.setVisible(false);
+        
+        venta1.setVisible(false);
+        cliente1.setVisible(true);
+        empleado1.setVisible(false);
+        proveedor1.setVisible(false);
+    }//GEN-LAST:event_botonesAzules6ActionPerformed
+
     private void botonesAzules5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonesAzules5ActionPerformed
         // TODO add your handling code here:
-        Empleado ep = new Empleado();
-        panel1.add(ep, BorderLayout.CENTER);
+
+        panel1.add(empleado1, BorderLayout.CENTER);
         panel2.setVisible(false);
-        ep.setVisible(true);
+
+        empleado1.setVisible(true);
+        cliente1.setVisible(false);
+        proveedor1.setVisible(false);
+        venta1.setVisible(false);
     }//GEN-LAST:event_botonesAzules5ActionPerformed
+
+    private void botonesAzules1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonesAzules1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_botonesAzules1ActionPerformed
+
+    private void botonesAzules4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonesAzules4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_botonesAzules4ActionPerformed
+
+    private void btnVentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVentasActionPerformed
+        // TODO add your handling code here:
+        
+         panel1.add(venta1, BorderLayout.CENTER);
+        panel2.setVisible(false);
+        
+        venta1.setVisible(true);
+        cliente1.setVisible(false);
+        empleado1.setVisible(false);
+        proveedor1.setVisible(false);
+        
+    }//GEN-LAST:event_btnVentasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -199,13 +260,16 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private Componentes.BotonesAzules botonesAzules2;
-    private Componentes.BotonesAzules botonesAzules3;
+    private Componentes.BotonesAzules botonesAzules1;
     private Componentes.BotonesAzules botonesAzules4;
     private Componentes.BotonesAzules botonesAzules5;
     private Componentes.BotonesAzules botonesAzules6;
     private Componentes.BotonesAzules botonesAzules7;
+    private Componentes.BotonesAzules btnVentas;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollBar jScrollBar1;

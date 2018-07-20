@@ -16,7 +16,7 @@ import javax.swing.JButton;
 public class BotonesAzules extends JButton {
     
     public BotonesAzules(){
-        setBackground(Color.BLUE);
+        setBackground(new Color(0,153,153));
         setForeground(Color.WHITE);
         setPreferredSize(new Dimension(150,35));
     }   
