@@ -18,6 +18,7 @@ import javax.swing.table.TableRowSorter;
  * @author yairf
  */
 public class Empleados extends javax.swing.JPanel {
+
     private TableRowSorter trsFiltro;
 
     private Conexion conexion = Conexion.getInstance();
@@ -56,9 +57,6 @@ public class Empleados extends javax.swing.JPanel {
         jSeparator11 = new javax.swing.JSeparator();
         segundoApellido = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        id = new javax.swing.JTextField();
-        jSeparator12 = new javax.swing.JSeparator();
         jLabel11 = new javax.swing.JLabel();
         nTelefono = new javax.swing.JTextField();
         jSeparator9 = new javax.swing.JSeparator();
@@ -140,23 +138,6 @@ public class Empleados extends javax.swing.JPanel {
         jLabel14.setFont(new java.awt.Font("Arial", 3, 18)); // NOI18N
         jLabel14.setText("Apellido P:");
         jPanel5.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 90, -1, 20));
-
-        jLabel12.setFont(new java.awt.Font("Arial", 3, 18)); // NOI18N
-        jLabel12.setText("ID:");
-        jPanel5.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, -1, 20));
-
-        id.setBackground(new java.awt.Color(218, 217, 217));
-        id.setForeground(new java.awt.Color(102, 153, 255));
-        id.setBorder(null);
-        id.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                idActionPerformed(evt);
-            }
-        });
-        jPanel5.add(id, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 160, 170, 40));
-
-        jSeparator12.setForeground(new java.awt.Color(0, 0, 0));
-        jPanel5.add(jSeparator12, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 200, 170, 10));
 
         jLabel11.setFont(new java.awt.Font("Arial", 3, 18)); // NOI18N
         jLabel11.setText("Sexo:");
@@ -291,49 +272,45 @@ public class Empleados extends javax.swing.JPanel {
         add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 320, 890, 300));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void nombreEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombreEmpleadoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_nombreEmpleadoActionPerformed
-
-    private void primerApellidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_primerApellidoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_primerApellidoActionPerformed
-
-    private void segundoApellidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_segundoApellidoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_segundoApellidoActionPerformed
-
-    private void idActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_idActionPerformed
-
-    private void nTelefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nTelefonoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_nTelefonoActionPerformed
-
-    private void fechaNacimientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fechaNacimientoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_fechaNacimientoActionPerformed
-
-    private void domicilioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_domicilioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_domicilioActionPerformed
-
-    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton1ActionPerformed
-
-    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton2ActionPerformed
-
     private void txtBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBuscarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtBuscarActionPerformed
 
-    private void btnAgregarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarEmpleadoActionPerformed
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
 
-        ModeloEmpleado u = new ModeloEmpleado(nombreEmpleado.getText(), primerApellido.getText(), segundoApellido.getText(), 12345, "9511899442", "2018-02-19", "Sn Pablo Huitzo", "Hombre");
+    }//GEN-LAST:event_btnBuscarActionPerformed
+
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+        DefaultTableModel tm = (DefaultTableModel) tablaEmpleado.getModel();
+        String dato = String.valueOf(tm.getValueAt(tablaEmpleado.getSelectedRow(), 0));
+        int celda = Integer.parseInt(dato);
+        System.out.println(dato);
+
+        conexion.establecerConexion();
+        ModeloEmpleado.eliminarUsuario(conexion.getConection(), celda);
+
+        Object[][] x = ModeloEmpleado.llenarEmpleados(conexion.getConection());
+        String[] nombreColumnas = {"ID", "Nombre", "Primer apellido", "Segundo apellido", "# Telefono", "Fecha nacimiento", "Domicilio", "Sexo"};
+        modelo = new DefaultTableModel(x, nombreColumnas);
+        this.tablaEmpleado.setModel(modelo);
+    }//GEN-LAST:event_btnEliminarActionPerformed
+
+    private void txtBuscarKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarKeyTyped
+        txtBuscar.addKeyListener(new KeyAdapter() {
+            public void keyReleased(final KeyEvent e) {
+                String cadena = (txtBuscar.getText());
+                txtBuscar.setText(cadena);
+                repaint();
+                filtro();
+            }
+        });
+        trsFiltro = new TableRowSorter(tablaEmpleado.getModel());
+        tablaEmpleado.setRowSorter(trsFiltro);
+
+    }//GEN-LAST:event_txtBuscarKeyTyped
+
+    private void btnAgregarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarEmpleadoActionPerformed
+        ModeloEmpleado u = new ModeloEmpleado(nombreEmpleado.getText(), primerApellido.getText(), segundoApellido.getText(), nTelefono.getText(), fechaNacimiento.getText(), domicilio.getText(), "Hombre");
 
         conexion.establecerConexion();
         int resultado = u.guardarRegistroUsuario(conexion.getConection(), u);
@@ -350,56 +327,52 @@ public class Empleados extends javax.swing.JPanel {
         this.tablaEmpleado.setModel(modelo);
     }//GEN-LAST:event_btnAgregarEmpleadoActionPerformed
 
-    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-
-    }//GEN-LAST:event_btnBuscarActionPerformed
-
-    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        DefaultTableModel tm = (DefaultTableModel) tablaEmpleado.getModel();
-        String dato = String.valueOf(tm.getValueAt(tablaEmpleado.getSelectedRow(),0));
-        int celda = Integer.parseInt(dato);
-        System.out.println(dato);
-        
-        conexion.establecerConexion();
-        ModeloEmpleado.eliminarUsuario(conexion.getConection(), celda);
-        
-        Object[][] x = ModeloEmpleado.llenarEmpleados(conexion.getConection());
-        String[] nombreColumnas = {"ID", "Nombre", "Primer apellido", "Segundo apellido", "# Telefono", "Fecha nacimiento", "Domicilio", "Sexo"};
-        modelo = new DefaultTableModel(x, nombreColumnas);
-        this.tablaEmpleado.setModel(modelo);        
-    }//GEN-LAST:event_btnEliminarActionPerformed
-
-    private void txtBuscarKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarKeyTyped
+    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
         // TODO add your handling code here:
-         // TODO add your handling code here:
-        txtBuscar.addKeyListener(new KeyAdapter() {
-            public void keyReleased(final KeyEvent e) {
-                String cadena = (txtBuscar.getText());
-                txtBuscar.setText(cadena);
-                repaint();
-                filtro();
-            }
-        });
-        trsFiltro = new TableRowSorter(tablaEmpleado.getModel());
-        tablaEmpleado.setRowSorter(trsFiltro);
+    }//GEN-LAST:event_jRadioButton2ActionPerformed
 
-    }//GEN-LAST:event_txtBuscarKeyTyped
+    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton1ActionPerformed
+
+    private void domicilioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_domicilioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_domicilioActionPerformed
+
+    private void fechaNacimientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fechaNacimientoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fechaNacimientoActionPerformed
+
+    private void nTelefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nTelefonoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nTelefonoActionPerformed
+
+    private void segundoApellidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_segundoApellidoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_segundoApellidoActionPerformed
+
+    private void primerApellidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_primerApellidoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_primerApellidoActionPerformed
+
+    private void nombreEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombreEmpleadoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nombreEmpleadoActionPerformed
 
     public void filtro() {
         int columnaABuscar = 1;
         trsFiltro.setRowFilter(RowFilter.regexFilter(txtBuscar.getText(), columnaABuscar));
     }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private Componentes.BotonesAzules btnAgregarEmpleado;
     private javax.swing.JButton btnBuscar;
     private Componentes.BotonesAzules btnEliminar;
     private javax.swing.JTextField domicilio;
     private javax.swing.JTextField fechaNacimiento;
-    private javax.swing.JTextField id;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
@@ -413,7 +386,6 @@ public class Empleados extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator10;
     private javax.swing.JSeparator jSeparator11;
-    private javax.swing.JSeparator jSeparator12;
     private javax.swing.JSeparator jSeparator14;
     private javax.swing.JSeparator jSeparator15;
     private javax.swing.JSeparator jSeparator8;

@@ -58,7 +58,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         botonesAzules1 = new Componentes.BotonesAzules();
         jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        usuarioActivo = new javax.swing.JLabel();
         panel2 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -132,10 +131,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jPanel3.setPreferredSize(new java.awt.Dimension(1100, 80));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 20, -1, -1));
-
-        usuarioActivo.setFont(new java.awt.Font("Tahoma", 2, 13)); // NOI18N
-        usuarioActivo.setText("YairFran12");
-        jPanel3.add(usuarioActivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 60, 70, -1));
 
         panel1.add(jPanel3, java.awt.BorderLayout.PAGE_START);
 
@@ -289,6 +284,5 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JScrollBar jScrollBar1;
     private javax.swing.JPanel panel1;
     private javax.swing.JPanel panel2;
-    private javax.swing.JLabel usuarioActivo;
     // End of variables declaration//GEN-END:variables
 }
