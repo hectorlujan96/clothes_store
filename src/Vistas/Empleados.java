@@ -5,50 +5,36 @@
  */
 package Vistas;
 
-import Modelos.ModeloEmpleado;
 import Conexion.Conexion;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import Modelos.ModeloEmpleado;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import javax.swing.RowFilter;
+import javax.swing.table.TableRowSorter;
 
 /**
  *
  * @author yairf
  */
-
 public class Empleados extends javax.swing.JPanel {
+    private TableRowSorter trsFiltro;
+
     private Conexion conexion = Conexion.getInstance();
     DefaultTableModel modelo;
-    
-   
+
     /**
      * Creates new form Empleados
      */
     public Empleados() {
         initComponents();
-        
+
         conexion.establecerConexion();
         Object[][] x = ModeloEmpleado.llenarEmpleados(conexion.getConection());
-       
-        
-        String[] cols = new String[6];
-        cols[0] = "None";
-        modelo = new DefaultTableModel(x, cols);
+        String[] nombreColumnas = {"ID", "Nombre", "Primer apellido", "Segundo apellido", "# Telefono", "Fecha nacimiento", "Domicilio", "Sexo"};
+        modelo = new DefaultTableModel(x, nombreColumnas);
         this.tablaEmpleado.setModel(modelo);
-       
-        
     }
-    
-   
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -88,10 +74,10 @@ public class Empleados extends javax.swing.JPanel {
         btnAgregarEmpleado = new Componentes.BotonesAzules();
         jPanel4 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtBuscar = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
         tablaEmpleado = new javax.swing.JTable();
-        botonesAzules3 = new Componentes.BotonesAzules();
+        btnEliminar = new Componentes.BotonesAzules();
         btnBuscar = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
@@ -259,12 +245,17 @@ public class Empleados extends javax.swing.JPanel {
         jLabel2.setText("Buscar Empleado");
         jPanel4.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(3, 14, 170, 30));
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        txtBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                txtBuscarActionPerformed(evt);
             }
         });
-        jPanel4.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 10, 270, 40));
+        txtBuscar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtBuscarKeyTyped(evt);
+            }
+        });
+        jPanel4.add(txtBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 10, 270, 40));
 
         tablaEmpleado.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -281,8 +272,13 @@ public class Empleados extends javax.swing.JPanel {
 
         jPanel4.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 890, 90));
 
-        botonesAzules3.setText("Eliminar");
-        jPanel4.add(botonesAzules3, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 20, 120, -1));
+        btnEliminar.setText("Eliminar");
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
+        jPanel4.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 20, 120, -1));
 
         btnBuscar.setText("Buscar");
         btnBuscar.addActionListener(new java.awt.event.ActionListener() {
@@ -331,35 +327,72 @@ public class Empleados extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_jRadioButton2ActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void txtBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBuscarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_txtBuscarActionPerformed
 
     private void btnAgregarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarEmpleadoActionPerformed
-        
-    ModeloEmpleado u = new ModeloEmpleado("Yair Francisco","Lopez","Hernandez",12345,"9511899442","2018-02-19","Sn Pablo Huitzo","Hombre");
 
-    conexion.establecerConexion();
-    int resultado = u.guardarRegistroUsuario(conexion.getConection(),u);
-    conexion.cerrarConexion();
+        ModeloEmpleado u = new ModeloEmpleado(nombreEmpleado.getText(), primerApellido.getText(), segundoApellido.getText(), 12345, "9511899442", "2018-02-19", "Sn Pablo Huitzo", "Hombre");
 
-    if (resultado == 1) {
-        //listaUsuarios.add(u);
+        conexion.establecerConexion();
+        int resultado = u.guardarRegistroUsuario(conexion.getConection(), u);
+        conexion.cerrarConexion();
 
-        System.out.println("Agregado correctamente");
+        if (resultado == 1) {
+            System.out.println("Agregado correctamente");
+        }
 
-    }
-
+        conexion.establecerConexion();
+        Object[][] x = ModeloEmpleado.llenarEmpleados(conexion.getConection());
+        String[] nombreColumnas = {"ID", "Nombre", "Primer apellido", "Segundo apellido", "# Telefono", "Fecha nacimiento", "Domicilio", "Sexo"};
+        modelo = new DefaultTableModel(x, nombreColumnas);
+        this.tablaEmpleado.setModel(modelo);
     }//GEN-LAST:event_btnAgregarEmpleadoActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
 
     }//GEN-LAST:event_btnBuscarActionPerformed
 
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+        DefaultTableModel tm = (DefaultTableModel) tablaEmpleado.getModel();
+        String dato = String.valueOf(tm.getValueAt(tablaEmpleado.getSelectedRow(),0));
+        int celda = Integer.parseInt(dato);
+        System.out.println(dato);
+        
+        conexion.establecerConexion();
+        ModeloEmpleado.eliminarUsuario(conexion.getConection(), celda);
+        
+        Object[][] x = ModeloEmpleado.llenarEmpleados(conexion.getConection());
+        String[] nombreColumnas = {"ID", "Nombre", "Primer apellido", "Segundo apellido", "# Telefono", "Fecha nacimiento", "Domicilio", "Sexo"};
+        modelo = new DefaultTableModel(x, nombreColumnas);
+        this.tablaEmpleado.setModel(modelo);        
+    }//GEN-LAST:event_btnEliminarActionPerformed
+
+    private void txtBuscarKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarKeyTyped
+        // TODO add your handling code here:
+         // TODO add your handling code here:
+        txtBuscar.addKeyListener(new KeyAdapter() {
+            public void keyReleased(final KeyEvent e) {
+                String cadena = (txtBuscar.getText());
+                txtBuscar.setText(cadena);
+                repaint();
+                filtro();
+            }
+        });
+        trsFiltro = new TableRowSorter(tablaEmpleado.getModel());
+        tablaEmpleado.setRowSorter(trsFiltro);
+
+    }//GEN-LAST:event_txtBuscarKeyTyped
+
+    public void filtro() {
+        int columnaABuscar = 1;
+        trsFiltro.setRowFilter(RowFilter.regexFilter(txtBuscar.getText(), columnaABuscar));
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private Componentes.BotonesAzules botonesAzules3;
     private Componentes.BotonesAzules btnAgregarEmpleado;
     private javax.swing.JButton btnBuscar;
+    private Componentes.BotonesAzules btnEliminar;
     private javax.swing.JTextField domicilio;
     private javax.swing.JTextField fechaNacimiento;
     private javax.swing.JTextField id;
@@ -385,11 +418,11 @@ public class Empleados extends javax.swing.JPanel {
     private javax.swing.JSeparator jSeparator15;
     private javax.swing.JSeparator jSeparator8;
     private javax.swing.JSeparator jSeparator9;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField nTelefono;
     private javax.swing.JTextField nombreEmpleado;
     private javax.swing.JTextField primerApellido;
     private javax.swing.JTextField segundoApellido;
     private javax.swing.JTable tablaEmpleado;
+    private javax.swing.JTextField txtBuscar;
     // End of variables declaration//GEN-END:variables
 }

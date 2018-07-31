@@ -126,13 +126,14 @@ public class ModeloEmpleado {
     }
      
     public static Object[][] llenarEmpleados(Connection connection) {
-        Object[][] tabla = new Object[100][8];
+        Object[][] tabla = new Object[20][8];
         
         try {
             
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery("SELECT * FROM empleado");
-
+            
+            
             int i = 0;
             
             while(resultSet.next()) {
@@ -155,6 +156,18 @@ public class ModeloEmpleado {
             return tabla;
         }
     }
-
     
+    public static int eliminarUsuario(Connection connection, int id){
+        try {
+             Statement statement = connection.createStatement();
+             statement.execute("delete from empleado where id_e = " + id);
+            
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+    
+    
+       
 }
