@@ -165,7 +165,7 @@ public class Productos extends javax.swing.JPanel {
                 jTextField12ActionPerformed(evt);
             }
         });
-        jPanel5.add(jTextField12, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 160, 160, 40));
+        jPanel5.add(jTextField12, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 160, 160, 40));
 
         jSeparator12.setForeground(new java.awt.Color(0, 0, 0));
         jPanel5.add(jSeparator12, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 200, 160, 10));

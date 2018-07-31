@@ -5,18 +5,50 @@
  */
 package Vistas;
 
+import Modelos.ModeloEmpleado;
+import Conexion.Conexion;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import Modelos.ModeloEmpleado;
+
 /**
  *
  * @author yairf
  */
-public class Empleados extends javax.swing.JPanel {
 
+public class Empleados extends javax.swing.JPanel {
+    private Conexion conexion = Conexion.getInstance();
+    DefaultTableModel modelo;
+    
+   
     /**
      * Creates new form Empleados
      */
     public Empleados() {
         initComponents();
+        
+        conexion.establecerConexion();
+        Object[][] x = ModeloEmpleado.llenarEmpleados(conexion.getConection());
+       
+        
+        String[] cols = new String[6];
+        cols[0] = "None";
+        modelo = new DefaultTableModel(x, cols);
+        this.tablaEmpleado.setModel(modelo);
+       
+        
     }
+    
+   
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -31,35 +63,36 @@ public class Empleados extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jSeparator8 = new javax.swing.JSeparator();
-        jTextField8 = new javax.swing.JTextField();
+        nombreEmpleado = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
         jSeparator10 = new javax.swing.JSeparator();
-        jTextField10 = new javax.swing.JTextField();
+        primerApellido = new javax.swing.JTextField();
         jSeparator11 = new javax.swing.JSeparator();
-        jTextField11 = new javax.swing.JTextField();
+        segundoApellido = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        jTextField12 = new javax.swing.JTextField();
+        id = new javax.swing.JTextField();
         jSeparator12 = new javax.swing.JSeparator();
         jLabel11 = new javax.swing.JLabel();
-        jTextField9 = new javax.swing.JTextField();
+        nTelefono = new javax.swing.JTextField();
         jSeparator9 = new javax.swing.JSeparator();
         jLabel16 = new javax.swing.JLabel();
-        jTextField14 = new javax.swing.JTextField();
+        fechaNacimiento = new javax.swing.JTextField();
         jSeparator14 = new javax.swing.JSeparator();
         jSeparator15 = new javax.swing.JSeparator();
         jLabel17 = new javax.swing.JLabel();
-        jTextField15 = new javax.swing.JTextField();
+        domicilio = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
         jRadioButton1 = new javax.swing.JRadioButton();
         jRadioButton2 = new javax.swing.JRadioButton();
-        botonesAzules2 = new Componentes.BotonesAzules();
+        btnAgregarEmpleado = new Componentes.BotonesAzules();
         jPanel4 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        tablaEmpleado = new javax.swing.JTable();
         botonesAzules3 = new Componentes.BotonesAzules();
+        btnBuscar = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -78,15 +111,15 @@ public class Empleados extends javax.swing.JPanel {
         jSeparator8.setForeground(new java.awt.Color(0, 0, 0));
         jPanel5.add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 120, 170, 10));
 
-        jTextField8.setBackground(new java.awt.Color(218, 217, 217));
-        jTextField8.setForeground(new java.awt.Color(102, 153, 255));
-        jTextField8.setBorder(null);
-        jTextField8.addActionListener(new java.awt.event.ActionListener() {
+        nombreEmpleado.setBackground(new java.awt.Color(218, 217, 217));
+        nombreEmpleado.setForeground(new java.awt.Color(102, 153, 255));
+        nombreEmpleado.setBorder(null);
+        nombreEmpleado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField8ActionPerformed(evt);
+                nombreEmpleadoActionPerformed(evt);
             }
         });
-        jPanel5.add(jTextField8, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 80, 170, 40));
+        jPanel5.add(nombreEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 80, 170, 40));
 
         jLabel13.setFont(new java.awt.Font("Arial", 3, 18)); // NOI18N
         jLabel13.setText("Apellido M:");
@@ -95,28 +128,28 @@ public class Empleados extends javax.swing.JPanel {
         jSeparator10.setForeground(new java.awt.Color(0, 0, 0));
         jPanel5.add(jSeparator10, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 120, 170, 10));
 
-        jTextField10.setBackground(new java.awt.Color(218, 217, 217));
-        jTextField10.setForeground(new java.awt.Color(102, 153, 255));
-        jTextField10.setBorder(null);
-        jTextField10.addActionListener(new java.awt.event.ActionListener() {
+        primerApellido.setBackground(new java.awt.Color(218, 217, 217));
+        primerApellido.setForeground(new java.awt.Color(102, 153, 255));
+        primerApellido.setBorder(null);
+        primerApellido.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField10ActionPerformed(evt);
+                primerApellidoActionPerformed(evt);
             }
         });
-        jPanel5.add(jTextField10, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 80, 170, 40));
+        jPanel5.add(primerApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 80, 170, 40));
 
         jSeparator11.setForeground(new java.awt.Color(0, 0, 0));
         jPanel5.add(jSeparator11, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 120, 170, 10));
 
-        jTextField11.setBackground(new java.awt.Color(218, 217, 217));
-        jTextField11.setForeground(new java.awt.Color(102, 153, 255));
-        jTextField11.setBorder(null);
-        jTextField11.addActionListener(new java.awt.event.ActionListener() {
+        segundoApellido.setBackground(new java.awt.Color(218, 217, 217));
+        segundoApellido.setForeground(new java.awt.Color(102, 153, 255));
+        segundoApellido.setBorder(null);
+        segundoApellido.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField11ActionPerformed(evt);
+                segundoApellidoActionPerformed(evt);
             }
         });
-        jPanel5.add(jTextField11, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 80, 170, 40));
+        jPanel5.add(segundoApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 80, 170, 40));
 
         jLabel14.setFont(new java.awt.Font("Arial", 3, 18)); // NOI18N
         jLabel14.setText("Apellido P:");
@@ -126,15 +159,15 @@ public class Empleados extends javax.swing.JPanel {
         jLabel12.setText("ID:");
         jPanel5.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, -1, 20));
 
-        jTextField12.setBackground(new java.awt.Color(218, 217, 217));
-        jTextField12.setForeground(new java.awt.Color(102, 153, 255));
-        jTextField12.setBorder(null);
-        jTextField12.addActionListener(new java.awt.event.ActionListener() {
+        id.setBackground(new java.awt.Color(218, 217, 217));
+        id.setForeground(new java.awt.Color(102, 153, 255));
+        id.setBorder(null);
+        id.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField12ActionPerformed(evt);
+                idActionPerformed(evt);
             }
         });
-        jPanel5.add(jTextField12, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 160, 170, 40));
+        jPanel5.add(id, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 160, 170, 40));
 
         jSeparator12.setForeground(new java.awt.Color(0, 0, 0));
         jPanel5.add(jSeparator12, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 200, 170, 10));
@@ -143,15 +176,15 @@ public class Empleados extends javax.swing.JPanel {
         jLabel11.setText("Sexo:");
         jPanel5.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 240, -1, 20));
 
-        jTextField9.setBackground(new java.awt.Color(218, 217, 217));
-        jTextField9.setForeground(new java.awt.Color(102, 153, 255));
-        jTextField9.setBorder(null);
-        jTextField9.addActionListener(new java.awt.event.ActionListener() {
+        nTelefono.setBackground(new java.awt.Color(218, 217, 217));
+        nTelefono.setForeground(new java.awt.Color(102, 153, 255));
+        nTelefono.setBorder(null);
+        nTelefono.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField9ActionPerformed(evt);
+                nTelefonoActionPerformed(evt);
             }
         });
-        jPanel5.add(jTextField9, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 160, 170, 40));
+        jPanel5.add(nTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 160, 170, 40));
 
         jSeparator9.setForeground(new java.awt.Color(0, 0, 0));
         jPanel5.add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 200, 170, 10));
@@ -160,15 +193,15 @@ public class Empleados extends javax.swing.JPanel {
         jLabel16.setText("Fecha Nacimiento:");
         jPanel5.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 170, -1, 20));
 
-        jTextField14.setBackground(new java.awt.Color(218, 217, 217));
-        jTextField14.setForeground(new java.awt.Color(102, 153, 255));
-        jTextField14.setBorder(null);
-        jTextField14.addActionListener(new java.awt.event.ActionListener() {
+        fechaNacimiento.setBackground(new java.awt.Color(218, 217, 217));
+        fechaNacimiento.setForeground(new java.awt.Color(102, 153, 255));
+        fechaNacimiento.setBorder(null);
+        fechaNacimiento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField14ActionPerformed(evt);
+                fechaNacimientoActionPerformed(evt);
             }
         });
-        jPanel5.add(jTextField14, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 160, 120, 40));
+        jPanel5.add(fechaNacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 160, 120, 40));
 
         jSeparator14.setForeground(new java.awt.Color(0, 0, 0));
         jPanel5.add(jSeparator14, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 200, 120, 10));
@@ -180,14 +213,14 @@ public class Empleados extends javax.swing.JPanel {
         jLabel17.setText("Domicilio:");
         jPanel5.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, -1, 20));
 
-        jTextField15.setBackground(new java.awt.Color(218, 217, 217));
-        jTextField15.setBorder(null);
-        jTextField15.addActionListener(new java.awt.event.ActionListener() {
+        domicilio.setBackground(new java.awt.Color(218, 217, 217));
+        domicilio.setBorder(null);
+        domicilio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField15ActionPerformed(evt);
+                domicilioActionPerformed(evt);
             }
         });
-        jPanel5.add(jTextField15, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 230, 370, 40));
+        jPanel5.add(domicilio, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 230, 370, 40));
 
         jLabel15.setFont(new java.awt.Font("Arial", 3, 18)); // NOI18N
         jLabel15.setText("Telefono:");
@@ -209,8 +242,13 @@ public class Empleados extends javax.swing.JPanel {
         });
         jPanel5.add(jRadioButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 240, 20, 20));
 
-        botonesAzules2.setText("Agregar");
-        jPanel5.add(botonesAzules2, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 230, 120, -1));
+        btnAgregarEmpleado.setText("Agregar");
+        btnAgregarEmpleado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregarEmpleadoActionPerformed(evt);
+            }
+        });
+        jPanel5.add(btnAgregarEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 230, 120, -1));
 
         add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 890, 300));
 
@@ -228,7 +266,7 @@ public class Empleados extends javax.swing.JPanel {
         });
         jPanel4.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 10, 270, 40));
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        tablaEmpleado.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null},
@@ -239,43 +277,51 @@ public class Empleados extends javax.swing.JPanel {
                 "ID", "Nombre", "Apellido P", "Apellido M", "Telefono", "Fecha ", "Domicilio", "Sexo"
             }
         ));
-        jScrollPane2.setViewportView(jTable2);
+        jScrollPane2.setViewportView(tablaEmpleado);
 
-        jPanel4.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 890, 180));
+        jPanel4.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 890, 90));
 
         botonesAzules3.setText("Eliminar");
         jPanel4.add(botonesAzules3, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 20, 120, -1));
 
+        btnBuscar.setText("Buscar");
+        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarActionPerformed(evt);
+            }
+        });
+        jPanel4.add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 220, -1, -1));
+
         add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 320, 890, 300));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField8ActionPerformed
+    private void nombreEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombreEmpleadoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField8ActionPerformed
+    }//GEN-LAST:event_nombreEmpleadoActionPerformed
 
-    private void jTextField10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField10ActionPerformed
+    private void primerApellidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_primerApellidoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField10ActionPerformed
+    }//GEN-LAST:event_primerApellidoActionPerformed
 
-    private void jTextField11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField11ActionPerformed
+    private void segundoApellidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_segundoApellidoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField11ActionPerformed
+    }//GEN-LAST:event_segundoApellidoActionPerformed
 
-    private void jTextField12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField12ActionPerformed
+    private void idActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField12ActionPerformed
+    }//GEN-LAST:event_idActionPerformed
 
-    private void jTextField9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField9ActionPerformed
+    private void nTelefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nTelefonoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField9ActionPerformed
+    }//GEN-LAST:event_nTelefonoActionPerformed
 
-    private void jTextField14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField14ActionPerformed
+    private void fechaNacimientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fechaNacimientoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField14ActionPerformed
+    }//GEN-LAST:event_fechaNacimientoActionPerformed
 
-    private void jTextField15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField15ActionPerformed
+    private void domicilioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_domicilioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField15ActionPerformed
+    }//GEN-LAST:event_domicilioActionPerformed
 
     private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
         // TODO add your handling code here:
@@ -289,10 +335,34 @@ public class Empleados extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
 
+    private void btnAgregarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarEmpleadoActionPerformed
+        
+    ModeloEmpleado u = new ModeloEmpleado("Yair Francisco","Lopez","Hernandez",12345,"9511899442","2018-02-19","Sn Pablo Huitzo","Hombre");
+
+    conexion.establecerConexion();
+    int resultado = u.guardarRegistroUsuario(conexion.getConection(),u);
+    conexion.cerrarConexion();
+
+    if (resultado == 1) {
+        //listaUsuarios.add(u);
+
+        System.out.println("Agregado correctamente");
+
+    }
+
+    }//GEN-LAST:event_btnAgregarEmpleadoActionPerformed
+
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+
+    }//GEN-LAST:event_btnBuscarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private Componentes.BotonesAzules botonesAzules2;
     private Componentes.BotonesAzules botonesAzules3;
+    private Componentes.BotonesAzules btnAgregarEmpleado;
+    private javax.swing.JButton btnBuscar;
+    private javax.swing.JTextField domicilio;
+    private javax.swing.JTextField fechaNacimiento;
+    private javax.swing.JTextField id;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -315,14 +385,11 @@ public class Empleados extends javax.swing.JPanel {
     private javax.swing.JSeparator jSeparator15;
     private javax.swing.JSeparator jSeparator8;
     private javax.swing.JSeparator jSeparator9;
-    private javax.swing.JTable jTable2;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField11;
-    private javax.swing.JTextField jTextField12;
-    private javax.swing.JTextField jTextField14;
-    private javax.swing.JTextField jTextField15;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
+    private javax.swing.JTextField nTelefono;
+    private javax.swing.JTextField nombreEmpleado;
+    private javax.swing.JTextField primerApellido;
+    private javax.swing.JTextField segundoApellido;
+    private javax.swing.JTable tablaEmpleado;
     // End of variables declaration//GEN-END:variables
 }

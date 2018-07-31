@@ -6,6 +6,7 @@
 package Vistas;
 
 import Conexion.Conexion;
+import Modelos.ModeloEmpleado;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -17,13 +18,28 @@ import javax.swing.JOptionPane;
  * @author iHector Lujan
  */
 public class Login extends javax.swing.JFrame {
-private Conexion conexion = Conexion.getInstance();
+
+    String userName;
+    
+    private Conexion conexion = Conexion.getInstance();
+
     /**
      * Creates new form Login
      */
     public Login() {
         initComponents();
         setLocationRelativeTo(null);
+        
+        conexion.establecerConexion();
+        Object[][] x = ModeloEmpleado.llenarEmpleados(conexion.getConection());
+        conexion.cerrarConexion();
+        
+        for (int i = 0; i < x.length; i++) {
+            for (int j = 0; j < x[0].length; j++) {
+                System.out.print(x[i][j]);
+            }
+            System.out.println("");
+        }
     }
 
     /**
@@ -57,6 +73,11 @@ private Conexion conexion = Conexion.getInstance();
 
         ingresar.setBackground(new java.awt.Color(0, 153, 153));
         ingresar.setText("Ingresar");
+        ingresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ingresarActionPerformed(evt);
+            }
+        });
         jPanel1.add(ingresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(56, 221, 100, -1));
 
         contraseña.setBackground(new java.awt.Color(218, 217, 217));
@@ -94,6 +115,21 @@ private Conexion conexion = Conexion.getInstance();
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void ingresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ingresarActionPerformed
+        // TODO add your handling code here:
+        userName = username.getText();
+        if (usuarioCorrecto()) {
+            JOptionPane.showMessageDialog(null, "Ingresando");
+            VentanaPrincipal vp = new VentanaPrincipal();
+            vp.setVisible(true);
+            dispose();
+
+        } else {
+            JOptionPane.showMessageDialog(null, "Error: usuario inexistente");
+            System.out.println("Error: usuario inexistente");
+        }
+    }//GEN-LAST:event_ingresarActionPerformed
+
     private boolean usuarioCorrecto() {
         conexion.establecerConexion();
         boolean c = getLogin(conexion.getConection(), username.getText(), contraseña.getText());
@@ -101,21 +137,23 @@ private Conexion conexion = Conexion.getInstance();
 
         return c;
     }
-    
+
     private boolean getLogin(Connection conn, String user, String pass) {
         try {
-            String query = "SELECT * FROM usuario_existente('" + user + "','" +pass+ "')";
+            String query = "SELECT * FROM usuario_existente('" + user + "','" + pass + "')";
             Statement stm = conn.createStatement();
 
             ResultSet rs = stm.executeQuery(query);
 
-            if (rs.next())
+            if (rs.next()) {
                 return rs.getBoolean(1);
-        }catch(SQLException e) {
+            }
+        } catch (SQLException e) {
             e.printStackTrace();
         }
         return false;
     }
+
     /**
      * @param args the command line arguments
      */
@@ -125,7 +163,7 @@ private Conexion conexion = Conexion.getInstance();
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
-        
+
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -144,7 +182,6 @@ private Conexion conexion = Conexion.getInstance();
         }
         //</editor-fold>
 
-            
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {

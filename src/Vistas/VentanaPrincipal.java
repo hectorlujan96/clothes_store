@@ -5,10 +5,7 @@
  */
 package Vistas;
 
-
-import Componentes.BandaBotones;
 import java.awt.BorderLayout;
-import java.awt.Dimension;
 /**
  *
  * @author iHector Lujan
@@ -26,6 +23,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     Ventas venta1 = new Ventas();
     Productos producto1 = new Productos();
     
+    
+    
     public VentanaPrincipal() {
         initComponents();
         setLocationRelativeTo(null);
@@ -35,6 +34,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         venta1.setVisible(true);
     }
 
+
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -57,7 +58,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         botonesAzules1 = new Componentes.BotonesAzules();
         jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        usuarioActivo = new javax.swing.JLabel();
         panel2 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -130,13 +131,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jPanel3.setMinimumSize(new java.awt.Dimension(1082, 50));
         jPanel3.setPreferredSize(new java.awt.Dimension(1100, 80));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\yairf\\Documents\\Proyecto\\clothes_store\\ICON\\if_person_5_1376035.png")); // NOI18N
         jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 20, -1, -1));
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 2, 13)); // NOI18N
-        jLabel4.setText("YairFran12");
-        jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 60, 70, -1));
+        usuarioActivo.setFont(new java.awt.Font("Tahoma", 2, 13)); // NOI18N
+        usuarioActivo.setText("YairFran12");
+        jPanel3.add(usuarioActivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 60, 70, -1));
 
         panel1.add(jPanel3, java.awt.BorderLayout.PAGE_START);
 
@@ -285,11 +284,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollBar jScrollBar1;
     private javax.swing.JPanel panel1;
     private javax.swing.JPanel panel2;
+    private javax.swing.JLabel usuarioActivo;
     // End of variables declaration//GEN-END:variables
 }
