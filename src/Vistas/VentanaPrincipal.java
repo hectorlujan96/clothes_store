@@ -55,7 +55,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         botonesAzules7 = new Componentes.BotonesAzules();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        botonesAzules1 = new Componentes.BotonesAzules();
         jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         panel2 = new javax.swing.JPanel();
@@ -115,14 +114,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/if_shirt-star_532788.png"))); // NOI18N
         jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 130, 140));
-
-        botonesAzules1.setText("Compras");
-        botonesAzules1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonesAzules1ActionPerformed(evt);
-            }
-        });
-        jPanel2.add(botonesAzules1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 520, -1, -1));
 
         panel1.add(jPanel2, java.awt.BorderLayout.LINE_START);
 
@@ -202,10 +193,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         producto1.setVisible(false);
     }//GEN-LAST:event_botonesAzules5ActionPerformed
 
-    private void botonesAzules1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonesAzules1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_botonesAzules1ActionPerformed
-
     private void btnProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProductosActionPerformed
         // TODO add your handling code here
         
@@ -270,7 +257,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private Componentes.BotonesAzules botonesAzules1;
     private Componentes.BotonesAzules botonesAzules5;
     private Componentes.BotonesAzules botonesAzules6;
     private Componentes.BotonesAzules botonesAzules7;

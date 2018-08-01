@@ -19,13 +19,13 @@ public class Conexion {
     private static Conexion instance;
     private Connection conection;
 
-    private final String URL = "jdbc:postgresql://localhost/TAP?currentSchema=tienda_ropa";
-    private final String USER = "postgres";
-    private final String PASSWORD = "silver";
-    
     //private final String URL = "jdbc:postgresql://localhost/TAP?currentSchema=tienda_ropa";
     //private final String USER = "postgres";
-    //private final String PASSWORD = "hernandez612";
+    //private final String PASSWORD = "silver";
+    
+    private final String URL = "jdbc:postgresql://localhost/TAP?currentSchema=tienda_ropa";
+    private final String USER = "postgres";
+    private final String PASSWORD = "hernandez612";
     
     // ihector96  lujansito
 
