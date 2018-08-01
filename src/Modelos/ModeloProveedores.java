@@ -5,6 +5,12 @@
  */
 package Modelos;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
 /**
  *
  * @author iHector Lujan
@@ -53,4 +59,62 @@ public class ModeloProveedores {
     public void setDireccion(String direccion) {
         this.direccion = direccion;
     }    
+    
+    public static Object[][] llenarProveedor(Connection connection) {
+        Object[][] tabla = new Object[20][5];
+
+        try {
+
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM proveedor");
+
+            int i = 0;
+
+            while (resultSet.next()) {
+                tabla[i][0] = resultSet.getInt("id_p");
+                tabla[i][1] = resultSet.getString("razon_social");
+                tabla[i][2] = resultSet.getString("n_telefono");
+                tabla[i][3] = resultSet.getString("direccion");
+                tabla[i][4] = resultSet.getString("correo_e");
+
+                i++;
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            return tabla;
+        }
+    }
+    
+     public int guardarRegistroProveedor(Connection connection, ModeloProveedores p) {
+        //Guarda el registro en la tabla de usuarios en la base de datos
+        final String query = "INSERT INTO proveedor (razon_social, n_telefono, direccion, correo_e)"
+                + " VALUES (?, ?, ?, ?)";
+        try {
+
+            PreparedStatement statement = connection.prepareStatement(query);
+            statement.setString(1, p.getRazon_social());
+            statement.setString(2, p.getTelefono());
+            statement.setString(3, p.getDireccion());
+            statement.setString(4, p.getCorreo());            
+
+            return statement.executeUpdate(); // retorna 1 si es correcto
+        } catch (SQLException ex) {
+            System.out.println("Hubo un error");
+            ex.printStackTrace();
+            return 0;
+        }
+    }
+        
+     public static int eliminarProveedor(Connection connection, int id) {
+        try {
+            Statement statement = connection.createStatement();
+            statement.execute("delete from proveedor where id_p = " + id);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
 }

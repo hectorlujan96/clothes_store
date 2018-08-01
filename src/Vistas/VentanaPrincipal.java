@@ -20,7 +20,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     Clientes cliente1 = new Clientes();
     Empleados empleado1 = new Empleados();
     Proveedores proveedor1 = new Proveedores();
-    Ventas venta1 = new Ventas();
+    Venta venta1 = new Venta();
     Productos producto1 = new Productos();
     
     
